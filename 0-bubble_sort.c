@@ -1,10 +1,9 @@
 #include "sort.h"
 
 /**
- * bublle_sort - sort int array with Bubble sort algorithm
+ * bubble_sort - sort int array with Bubble sort algorithm
  * -> go through array and swap 2 elements for every step
  * https://www.youtube.com/watch?v=lyZQPjUT5B4&t=306s
- *
  * @array: array to sort
  * @size: size of the array
  */
