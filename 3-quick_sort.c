@@ -6,7 +6,7 @@ int separate(int *array, int low, int high, size_t size)
 	i = low - 1;
 	pivot = array[high];
 
-	for (j = 0; j < high; j++)
+	for (j = low; j < high; j++)
 	{
 		if (array[j] < pivot)
 		{
@@ -19,20 +19,29 @@ int separate(int *array, int low, int high, size_t size)
 	temp = array[i + 1];
 	array[i + 1] = pivot;
 	array[size - 1] = temp;
+	print_array(array, size);
 
 	return (i + 1);
 }
-/**
- * quick_sort_rec - sort an int array using quick sort algorithm
- * @array: array to sort
- * @size: size of the array
- */
-void quick_sort_(int *array, size_t size)
-{
-	if (array == NULL)
-		return;
 
-	separate()
+/**
+ * quick_sort_rec - recursive quick sort using Lomuto partition
+ * @array: array to sort
+ * @low: starting index
+ * @high: ending index
+ * @size: original array size
+ */
+void quick_sort_rec(int *array, int low, int high, size_t size)
+{
+	int pivot;
+
+	if (low < high)
+	{
+		pivot = separate(array, low, high, size);
+
+		quick_sort_rec(array, low, pivot - 1, size);
+		quick_sort_rec(array, pivot + 1, high, size);
+	}
 }
 
 /**
@@ -42,5 +51,7 @@ void quick_sort_(int *array, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-
+	if (array == NULL || size < 2)
+		return;
+	quick_sort_rec(array, 0, size - 1, size);
 }
