@@ -6,6 +6,8 @@
  * @low: starting index
  * @high: ending index
  * @size: original array size
+ *
+ * Return: The index position of the pivot after partitioning
  */
 int separate(int *array, int low, int high, size_t size)
 {
@@ -19,22 +21,22 @@ int separate(int *array, int low, int high, size_t size)
 		if (array[j] < pivot)
 		{
 			i++;
-        	if (i != j)
-        	{
+			if (i != j)
+			{
 				temp = array[i];
-         		array[i] = array[j];
-         		array[j] = temp;
-         		print_array(array, size);
+				array[i] = array[j];
+				array[j] = temp;
+				print_array(array, size);
 			}
 		}
 	}
-    if (i + 1 != high)
-    {
-        temp = array[i + 1];
-        array[i + 1] = array[high];
-        array[high] = temp;
-        print_array(array, size);
-    }
+	if (i + 1 != high)
+	{
+		temp = array[i + 1];
+		array[i + 1] = array[high];
+		array[high] = temp;
+		print_array(array, size);
+	}
 
 	return (i + 1);
 }
