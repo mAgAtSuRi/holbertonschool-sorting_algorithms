@@ -1,4 +1,12 @@
 #include "sort.h"
+
+/**
+ * separate - separate pivot with left < values and right >
+ * @array: array to separate
+ * @low: starting index
+ * @high: ending index
+ * @size: original array size
+ */
 int separate(int *array, int low, int high, size_t size)
 {
 	int i, j, pivot, temp;
